@@ -10,13 +10,15 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-router-dom": "4.3.1",
-    "axios": "0.18.1"
+    "axios": "0.18.1",
+    "nodemon": "1.18.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon"
   },
   "eslintConfig": {
     "extends": "react-app"
