@@ -51,3 +51,13 @@ services:
         volumes: 
             - /app/node_modules
             - ./worker:/app
+    dd-agent:
+        image: datadog/agent:7
+        container_name: dd-agent
+        environment:
+            - DD_API_KEY=${DD_API_KEY}
+            - DOCKER_CONTENT_TRUST=1
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+            - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+            - /proc/:/host/proc/:ro

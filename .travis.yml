@@ -21,3 +21,15 @@ after_success:
   - docker push hawley/multi-nginx
   - docker push hawley/multi-server
   - docker push hawley/multi-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-770729813978
+  bucket_path: docker_multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
