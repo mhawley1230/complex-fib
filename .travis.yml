@@ -25,6 +25,7 @@ after_success:
 deploy:
   edge: true
   provider: elasticbeanstalk
+  region: us-east-2
   app: multi-docker
   env: MultiDocker-env
   bucket_name: elasticbeanstalk-us-east-2-770729813978
