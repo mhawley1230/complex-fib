@@ -54,10 +54,17 @@ services:
     dd-agent:
         image: datadog/agent:7
         container_name: dd-agent
+        links:
+            - redis
+            - postgres
+            - nginx
         environment:
             - DD_API_KEY=${DD_API_KEY}
             - DOCKER_CONTENT_TRUST=1
+            - DD_HOSTNAME=multi-docker-host
+            - DD_PROCESS_AGENT_ENABLED=true
         volumes:
+            - /etc/passwd:/etc/passwd:ro
             - /var/run/docker.sock:/var/run/docker.sock:ro
             - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
             - /proc/:/host/proc/:ro
